@@ -7,13 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+	private let gradientView = GradientView(frame: .init(x: 100, y: 0, width: 100, height: 100))
 
-	override func viewDidLoad() {
+	override func viewDidLoad()
+	{
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		view.backgroundColor = .systemBackground
+		view.addSubview(gradientView)
 	}
 
-
+	override func viewWillLayoutSubviews()
+	{
+		super.viewWillLayoutSubviews()
+		gradientView.center.y = view.center.y
+	}
 }
-
